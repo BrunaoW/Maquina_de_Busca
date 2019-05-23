@@ -1,7 +1,9 @@
+#include <iostream>
+
 #pragma once
 class Documento
 {
-	string nome;
+	std::string nome;
 public:
 	Documento();
 	~Documento();
