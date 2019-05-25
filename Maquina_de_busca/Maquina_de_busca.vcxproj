@@ -115,15 +115,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Consulta.cpp" />
+    <ClCompile Include="Coordenada.cpp" />
     <ClCompile Include="Documento.cpp" />
     <ClCompile Include="IndiceInvertido.cpp" />
     <ClCompile Include="LeituraArquivos.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Palavra.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Consulta.h" />
+    <ClInclude Include="Coordenada.h" />
     <ClInclude Include="Documento.h" />
     <ClInclude Include="IndiceInvertido.h" />
     <ClInclude Include="LeituraArquivos.h" />
+    <ClInclude Include="Palavra.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
