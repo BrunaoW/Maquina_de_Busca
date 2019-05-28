@@ -115,21 +115,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Consulta.cpp" />
-    <ClCompile Include="Coordenada.cpp" />
-    <ClCompile Include="Documento.cpp" />
-    <ClCompile Include="IndiceInvertido.cpp" />
-    <ClCompile Include="LeituraArquivos.cpp" />
+    <ClCompile Include="consulta.cpp" />
+    <ClCompile Include="coordenada.cpp" />
+    <ClCompile Include="documento.cpp" />
+    <ClCompile Include="indice_invertido.cpp" />
+    <ClCompile Include="leitura_arquivos.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Palavra.cpp" />
+    <ClCompile Include="palavra.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Consulta.h" />
-    <ClInclude Include="Coordenada.h" />
-    <ClInclude Include="Documento.h" />
-    <ClInclude Include="IndiceInvertido.h" />
-    <ClInclude Include="LeituraArquivos.h" />
-    <ClInclude Include="Palavra.h" />
+    <ClInclude Include="consulta.h" />
+    <ClInclude Include="coordenada.h" />
+    <ClInclude Include="documento.h" />
+    <ClInclude Include="indice_invertido.h" />
+    <ClInclude Include="leitura_arquivos.h" />
+    <ClInclude Include="palavra.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

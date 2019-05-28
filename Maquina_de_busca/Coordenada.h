@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
 
-#include "Palavra.h"
+#include "palavra.h"
 
 using namespace std;
 

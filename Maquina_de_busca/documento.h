@@ -1,8 +1,8 @@
 #include <iostream>
 #include <map>
 
-#include "Palavra.h"
-#include "Coordenada.h"
+#include "palavra.h"
+#include "coordenada.h"
 
 using namespace std;
 

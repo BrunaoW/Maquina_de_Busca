@@ -5,8 +5,8 @@
 #include <string>
 #include <set>
 
-#include "Documento.h"
-#include "Coordenada.h"
+#include "documento.h"
+#include "coordenada.h"
 
 using namespace std;
 

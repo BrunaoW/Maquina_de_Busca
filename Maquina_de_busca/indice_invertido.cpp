@@ -1,6 +1,4 @@
-#include "IndiceInvertido.h"
-
-
+#include "indice_invertido.h"
 
 IndiceInvertido::IndiceInvertido()
 {

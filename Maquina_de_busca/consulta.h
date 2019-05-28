@@ -1,7 +1,7 @@
 #include <list>
 
-#include "Palavra.h"
-#include "Coordenada.h"
+#include "palavra.h"
+#include "coordenada.h"
 
 #pragma once
 class Consulta
