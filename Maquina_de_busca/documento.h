@@ -14,7 +14,7 @@ class Documento
 	Coordenada coordenada_;
 
 public:
-	Documento();
+	Documento(string nome);
 	~Documento();
 };
 
