@@ -10,18 +10,18 @@ using namespace std;
 list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
 	list<Documento> documentos;
 	
-	DIR* diretorioAtual = nullptr;
+	DIR* diretorioAtual = NULL;
 	diretorioAtual = opendir("./dataset");
 
-	dirent* arquivo = nullptr;
+	dirent* arquivo = NULL;
 
-	if (diretorioAtual == NULL || diretorioAtual == nullptr) {
+	if (diretorioAtual == NULL) {
 		cout << "Diretorio nao iniciado corretamente." << endl;
 		exit(3);
 	}
 
 	while (arquivo = readdir(diretorioAtual)) {
-		if (arquivo == NULL || arquivo == nullptr) {
+		if (arquivo == NULL) {
 			cout << "Arquivo nao iniciado corretamente." << endl;
 			exit(3);
 		}
