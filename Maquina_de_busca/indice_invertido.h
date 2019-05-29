@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INDICE_INVERTIDO_H_
+#define INDICE_INVERTIDO_H_
 
 #include <iostream>
 #include <map>
@@ -13,10 +14,16 @@ using namespace std;
 class IndiceInvertido
 {
 	map<string, set<Documento>> registros_;
-	Coordenada coordenadaPadrao;
 
 	public:
+	// Inicializa indice invertido
 	IndiceInvertido();
+	
 	~IndiceInvertido();
+
+	map<Palavra, set<Documento>>& ObterRegistros();
 };
+
+#endif // !INDICE_INVERTIDO_H_
+
 
