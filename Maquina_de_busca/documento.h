@@ -14,6 +14,7 @@ class Documento
 	Coordenada coordenada_;
 
 public:
+	Documento(string nome);
 	// Inicializar documento
 	Documento();
 
