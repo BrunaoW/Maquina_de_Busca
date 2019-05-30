@@ -1,8 +1,11 @@
+
+#ifndef PALAVRA_H_
+#define PALAVRA_H_
+
 #include <iostream>
 
 using namespace std;
 
-#pragma once
 class Palavra
 {
 	string nome_;
@@ -11,3 +14,4 @@ public:
 	~Palavra();
 };
 
+#endif // !PALAVRA_H_
