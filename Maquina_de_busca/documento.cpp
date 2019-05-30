@@ -2,6 +2,10 @@
 
 #include "documento.h"
 
+Documento::Documento()
+{
+}
+
 Documento::Documento(string nome)
 {
 	this->nome_ = nome;

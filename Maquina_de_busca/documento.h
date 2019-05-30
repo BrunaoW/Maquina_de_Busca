@@ -1,3 +1,6 @@
+#ifndef DOCUMENTO_H_
+#define DOCUMENTO_H_
+
 #include <iostream>
 #include <map>
 
@@ -6,7 +9,6 @@
 
 using namespace std;
 
-#pragma once
 class Documento
 {
 	string nome_;
@@ -14,13 +16,17 @@ class Documento
 	Coordenada coordenada_;
 
 public:
-	Documento(string nome);
 	// Inicializar documento
 	Documento();
 
-	~Documento();
+	// Inicializar o documento com o nome do arquivo
+	Documento(string nome);
 
 	// Atribuir coordenada a documento
 	void AtribuirCoordenada(Coordenada coordenada);
+
+	~Documento();
 };
+
+#endif // DOCUMENTO_H_
 

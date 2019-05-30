@@ -1,3 +1,6 @@
+#ifndef COORDENADA_H_
+#define COORDENADA_H_
+
 #include <iostream>
 #include <map>
 
@@ -19,3 +22,4 @@ public:
 	void IncluirPosicao(Palavra palavra, double valor = 0);
 };
 
+#endif // !COORDENADA_H_
