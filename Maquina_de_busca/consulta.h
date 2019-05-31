@@ -3,7 +3,6 @@
 #include "palavra.h"
 #include "coordenada.h"
 
-#pragma once
 class Consulta
 {
 	list<Palavra> palavras_;

@@ -14,7 +14,13 @@ class Documento
 	Coordenada coordenada_;
 
 public:
+	Documento(string nome);
+	// Inicializar documento
 	Documento();
+
 	~Documento();
+
+	// Atribuir coordenada a documento
+	void AtribuirCoordenada(Coordenada coordenada);
 };
 
