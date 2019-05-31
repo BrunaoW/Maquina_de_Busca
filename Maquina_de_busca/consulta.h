@@ -10,11 +10,14 @@ class Consulta
 {
 	list<Palavra> palavras_;
 	Coordenada coordenada_;
-public:
+	public:
 	// Construtor da Consulta
 	Consulta();
 
 	~Consulta();
+
+	// Atribuir coordenada padrao a consulta
+	void AtribuirCoordenada(Coordenada coordenada);
 };
 
 #endif // !CONSULTA_H_

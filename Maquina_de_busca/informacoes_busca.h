@@ -15,14 +15,17 @@ class InformacoesBusca
 	Coordenada coordenadaPadrao_;
 	Consulta consulta_;
 
-public:
+	public:
 	// Inicializa Informacoes da busca
 	InformacoesBusca();
 
-	~InformacoesBusca();
-
 	// Inicializa coordenada padrao, a partir das palavras carregadas
 	void InicializarCoordenadaPadrao();
+	
+	// Calcula as coordenadas para cada documento
+	void CalcularCoordenadasParaOsDocumentos();
+
+	~InformacoesBusca();
 };
 #endif // !INFORMACOES_BUSCA_H_
 
