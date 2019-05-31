@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include "dirent.h"
 
 #include "documento.h"
 

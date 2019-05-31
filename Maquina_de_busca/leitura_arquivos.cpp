@@ -1,7 +1,7 @@
 #include <iostream>
 #include <list>
-#include <dirent.h>
 
+#include "dirent.h"
 #include "leitura_arquivos.h"
 #include "documento.h"
 
@@ -10,8 +10,9 @@ using namespace std;
 list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
 	list<Documento> documentos;
 	
+	
 	DIR* diretorioAtual = NULL;
-	diretorioAtual = opendir("./dataset");
+	diretorioAtual = opendir("dataset");
 
 	dirent* arquivo = NULL;
 
