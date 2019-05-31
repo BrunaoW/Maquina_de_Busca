@@ -10,6 +10,7 @@ InformacoesBusca::~InformacoesBusca()
 }
 
 
+
 void InformacoesBusca::InicializarCoordenadaPadrao()
 {
 	Coordenada coordenadaACriar;
@@ -23,5 +24,14 @@ void InformacoesBusca::InicializarCoordenadaPadrao()
 
 	for (Documento& documento : documentos_) {
 		documento.AtribuirCoordenada(this->coordenadaPadrao_);
+	}
+
+	this->consulta_.AtribuirCoordenada(this->coordenadaPadrao_);
+}
+
+void InformacoesBusca::CalcularCoordenadasParaOsDocumentos()
+{
+	for (Documento& documento : this->documentos_) {
+
 	}
 }
