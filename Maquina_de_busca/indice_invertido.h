@@ -20,7 +20,7 @@ class IndiceInvertido
 	IndiceInvertido();
 
 	// Retornar os registros do indice invertido
-	map<Palavra, set<Documento>>& ObterRegistros();
+	map<Palavra, set<Documento>> ObterRegistros();
 	
 	// Retorna a quantidade de documentos associados a uma palavra
 	friend int BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(IndiceInvertido indiceInvertido, Palavra palavra);

@@ -19,9 +19,13 @@ class Documento
 	public:
 	// Inicializar documento
 	Documento();
-
 	// Inicializar o documento com o nome do arquivo
 	Documento(string nome);
+	//obter nome string
+	string ObterNome();
+
+	bool operator<(const Documento& documento);
+	map<Palavra, int> ObterPalavras();
 
 	// Atribuir coordenada a documento
 	void AtribuirCoordenada(Coordenada coordenada);
