@@ -8,7 +8,6 @@
 
 using namespace std;
 
-#pragma once
 class Coordenada
 {
 	map<Palavra, double> posicao_;
