@@ -1,7 +1,5 @@
 #include "coordenada.h"
 
-
-
 Coordenada::Coordenada()
 {
 }

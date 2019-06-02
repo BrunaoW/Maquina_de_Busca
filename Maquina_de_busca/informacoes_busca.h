@@ -1,12 +1,12 @@
-#ifndef INFORMACOES_BUSCA_H_
-#define INFORMACOES_BUSCA_H_
-
 #include <list>
 
 #include "indice_invertido.h"
 #include "documento.h"
 #include "coordenada.h"
 #include "consulta.h"
+
+#ifndef INFORMACOES_BUSCA_H
+#define INFORMACOES_BUSCA_H
 
 class InformacoesBusca
 {
@@ -27,6 +27,6 @@ class InformacoesBusca
 
 	~InformacoesBusca();
 };
-#endif // !INFORMACOES_BUSCA_H_
+#endif // INFORMACOES_BUSCA_H
 
 

@@ -17,7 +17,7 @@ void InformacoesBusca::InicializarCoordenadaPadrao()
 	map<Palavra, set<Documento>>& registros = this->indiceInvertido_.ObterRegistros();
 
 	for (auto const& registro : registros) {
-		coordenadaACriar.IncluirPosicao(registro.first);
+		coordenadaACriar.IncluirPosicao(registro.first, 0);
 	}
 
 	this->coordenadaPadrao_ = coordenadaACriar;

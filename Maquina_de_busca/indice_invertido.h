@@ -1,13 +1,13 @@
-#ifndef INDICE_INVERTIDO_H_
-#define INDICE_INVERTIDO_H_
-
 #include <iostream>
 #include <map>
 #include <string>
 #include <set>
 
-#include "documento.h"
 #include "palavra.h"
+#include "documento.h"
+
+#ifndef INDICE_INVERTIDO_H
+#define INDICE_INVERTIDO_H
 
 using namespace std;
 
@@ -22,12 +22,14 @@ class IndiceInvertido
 	// Retornar os registros do indice invertido
 	map<Palavra, set<Documento>>& ObterRegistros();
 	
+	void CalcularCoordenadasParaMapaDePalavras(Documento documento, int numeroDeDocumentos);
+
 	// Retorna a quantidade de documentos associados a uma palavra
-	friend int BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(IndiceInvertido indiceInvertido, Palavra palavra);
+	int BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(Palavra palavra);
 
 	~IndiceInvertido();
 };
 
-#endif // !INDICE_INVERTIDO_H_
+#endif // INDICE_INVERTIDO_H
 
 
