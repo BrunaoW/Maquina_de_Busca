@@ -33,14 +33,16 @@ list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
 	closedir(diretorioAtual);
 	return documentos;
 }
-void LeituraArquivos::NormalizacaoPalavras(list <Documento> documentos, IndiceInvertido IndiceInvertido) {
+void LeituraArquivos::LeituraFinal(list <Documento> documentos, IndiceInvertido IndiceInvertido) {
 	for (Documento& documento : documentos){
 		ifstream arquivo;
 		arquivo.open(documento.ObterNome());
 		while (!arquivo.eof()) {
 			string palavra;
 			arquivo >> palavra;
-		// CHAMAR MÉTODO NORMALIZAR, CHAMAR MÉTODOS ABAIXO
+			NormalizarPalavras(Palavra palavra);
+			AdicionarPalavraDoc(Documento documento, Palavra palavra);
+			AdicionaIndice(Documento documento, string palavra, IndiceInvertido IndiceInvertido);
 		}
 	}
 
@@ -57,3 +59,13 @@ void LeituraArquivos::AdicionarPalavraDoc(Documento documento, Palavra palavra) 
 	map<Palavra, int>palavras = documento.ObterPalavras();
 	palavras[palavra]++;
 }
+
+string LeituraArquivos::NormalizarPalavras(Palavra palavra) {
+	ostringstream chave;
+	for (int i = 0; i < palavra.lenght(); i++) {
+		if (palavra[i] >= 'a' && palavra[i] <= 'z') || (palavra[i] >= 'A' && palavra[i] <= 'Z') || (palavra[i] >= '0' && palavra[i] <= '9')) {
+		chave << tolower(palavra[i], locale());
+		}
+	}
+	return chave.str();
+}//Fim da função de normalizar as palavras
