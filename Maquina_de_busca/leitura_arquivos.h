@@ -5,6 +5,7 @@
 
 #include "dirent.h"
 #include "documento.h"
+#include "palavra.h"
 #include "indice_invertido.h"
 
 using namespace std;
@@ -12,11 +13,13 @@ using namespace std;
 namespace LeituraArquivos {
 	list<Documento> LerArquivosDaPastaAtual();
 
-	void NormalizacaoPalavras(list <Documento> documentos, IndiceInvertido IndiceInvertido);
+	void LerPalavrasDeDocumentos(list<Documento>& documentos, IndiceInvertido& indiceInvertido);
+
+	string NormalizarPalavra(string palavra);
 	
-	void AdicionaIndice(Documento documento, string palavra, IndiceInvertido IndiceInvertido);
+	void AdicionarPalavraAoIndiceInvertido(Documento& documento, IndiceInvertido& IndiceInvertido, Palavra palavra);
 	
-	void AdicionarPalavraDoc(Documento documento, Palavra palavra);
+	void AdicionarPalavraAoDocumento(Documento& documento, Palavra palavra);
 }
 
 
