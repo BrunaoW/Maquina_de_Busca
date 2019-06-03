@@ -13,9 +13,9 @@ Palavra::Palavra(string nome)
 	this->nome_ = nome;
 }
 
-bool Palavra::operator<(const Palavra& palavra) const
+bool operator<(const Palavra& palavra1, const Palavra& palavra2)
 {
-	return this->nome_ < palavra.nome_;
+	return palavra1.nome_ < palavra2.nome_;
 }
 
 Palavra::~Palavra()

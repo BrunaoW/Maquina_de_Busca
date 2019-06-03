@@ -1,8 +1,7 @@
-
-#ifndef PALAVRA_H_
-#define PALAVRA_H_
-
 #include <iostream>
+
+#ifndef PALAVRA_H
+#define PALAVRA_H
 
 using namespace std;
 
@@ -17,9 +16,9 @@ class Palavra
 	Palavra(string nome);
 
 	// Operador de comparacao criado para acessar o map a partir da palavra
-	bool operator<(const Palavra& palavra) const;
+	friend bool operator<(const Palavra& palavra1, const Palavra& palavra2);
 
 	~Palavra();
 };
 
-#endif // !PALAVRA_H_
+#endif // PALAVRA_H

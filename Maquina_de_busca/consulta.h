@@ -1,10 +1,10 @@
-#ifndef CONSULTA_H_
-#define CONSULTA_H_
-
 #include <list>
 
 #include "palavra.h"
 #include "coordenada.h"
+
+#ifndef CONSULTA_H
+#define CONSULTA_H
 
 class Consulta
 {
@@ -20,4 +20,4 @@ class Consulta
 	void AtribuirCoordenada(Coordenada coordenada);
 };
 
-#endif // !CONSULTA_H_
+#endif // CONSULTA_H

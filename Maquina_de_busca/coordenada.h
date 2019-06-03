@@ -1,14 +1,13 @@
-#ifndef COORDENADA_H_
-#define COORDENADA_H_
-
 #include <iostream>
 #include <map>
 
 #include "palavra.h"
 
+#ifndef COORDENADA_H
+#define COORDENADA_H
+
 using namespace std;
 
-#pragma once
 class Coordenada
 {
 	map<Palavra, double> posicao_;
@@ -19,10 +18,10 @@ class Coordenada
 	~Coordenada();
 
 	// Incluir um novo eixo, i.e., uma nova palavra, e seu respectivo valor
-	void IncluirPosicao(Palavra palavra, double valor = 0);
+	void IncluirPosicao(Palavra palavra, double valor);
 
 	// Atualiza valor da palavra
-	void AtualizarValorDaPalavra(Palavra palavra, double valor = 0);
+	void AtualizarValorDaPalavra(Palavra palavra, double valor);
 };
 
-#endif // !COORDENADA_H_
+#endif // COORDENADA_H

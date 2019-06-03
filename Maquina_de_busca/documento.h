@@ -1,12 +1,12 @@
-#ifndef DOCUMENTO_H_
-#define DOCUMENTO_H_
-
-#include <iostream>
 #include <map>
+#include <iostream>
+#include <cmath>
 
 #include "palavra.h"
 #include "coordenada.h"
-#include "indice_invertido.h"
+
+#ifndef DOCUMENTO_H
+#define DOCUMENTO_H
 
 using namespace std;
 
@@ -24,7 +24,8 @@ class Documento
 	//obter nome string
 	string ObterNome();
 
-	bool operator<(const Documento& documento);
+	friend bool operator<(const Documento& documento1, const Documento& documento2);
+
 	map<Palavra, int> ObterPalavras();
 
 	// Atribuir coordenada a documento
@@ -33,11 +34,10 @@ class Documento
 	// Buscar palavra que existe no documento e retornar a quantidade de vezes que ela aparece
 	int BuscarVezesQuePalavraAparece(Palavra palavra);
 
-	// Calcula a coordenada para cada palavra presente no documento
-	void CalcularCoordenadaParaCadaPalavra(const IndiceInvertido& indiceInvertido, int numeroTotalDeDocumentos);
+	friend class IndiceInvertido;
 
 	~Documento();
 };
 
-#endif // DOCUMENTO_H_
+#endif // DOCUMENTO_H
 

@@ -1,8 +1,4 @@
-#include <iostream>
-#include <cmath>
-
 #include "documento.h"
-#include "indice_invertido.h"
 
 Documento::Documento()
 {
@@ -18,9 +14,9 @@ string Documento::ObterNome()
 	return this->nome_;
 }
 
-bool Documento::operator<(const Documento& documento)
+bool operator<(const Documento& documento1, const Documento& documento2)
 {
-	return this ->nome_<documento.nome_;
+	return documento1.nome_ < documento2.nome_;
 }
 
 map<Palavra, int> Documento::ObterPalavras()
@@ -28,23 +24,13 @@ map<Palavra, int> Documento::ObterPalavras()
 	return this ->palavras_;
 }
 
+void Documento::AtribuirCoordenada(Coordenada coordenada) {
+	this->coordenada_ = coordenada;
+}
 
 int Documento::BuscarVezesQuePalavraAparece(Palavra palavra)
 {
 	return this->palavras_[palavra];
-}
-
-void Documento::CalcularCoordenadaParaCadaPalavra(const IndiceInvertido& indiceInvertido, int numeroTotalDeDocumentos)
-{
-	for (auto& palavra : this->palavras_) {
-		int tf = BuscarVezesQuePalavraAparece(palavra.first);
-		double idf = log10(numeroTotalDeDocumentos / BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(indiceInvertido, palavra.first));
-		this->coordenada_.AtualizarValorDaPalavra(palavra.first, tf * idf);
-	}
-}
-
-void Documento::AtribuirCoordenada(Coordenada coordenada) {
-	this->coordenada_ = coordenada;
 }
 
 Documento::~Documento()
