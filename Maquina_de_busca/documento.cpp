@@ -14,9 +14,9 @@ string Documento::ObterNome()
 	return this->nome_;
 }
 
-bool Documento::operator<(const Documento& documento)
+bool operator<(const Documento& documento1, const Documento& documento2)
 {
-	return this ->nome_<documento.nome_;
+	return documento1.nome_ < documento2.nome_;
 }
 
 map<Palavra, int> Documento::ObterPalavras()

@@ -9,7 +9,7 @@ IndiceInvertido::~IndiceInvertido()
 {
 }
 
-map<Palavra, set<Documento>> IndiceInvertido::ObterRegistros() {
+map<Palavra, set<Documento>>& IndiceInvertido::ObterRegistros() {
 	return this->registros_;
 }
 

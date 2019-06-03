@@ -1,17 +1,10 @@
-#include <iostream>
-#include <list>
-#include <sstream>
-#include "dirent.h"
 #include "leitura_arquivos.h"
-#include "documento.h"
-#include <fstream>
 
 using namespace std;
 
 list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
 	list<Documento> documentos;
 	
-	int contador;
 	DIR* diretorioAtual = NULL;
 	diretorioAtual = opendir("dataset");
 
@@ -33,7 +26,8 @@ list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
 	closedir(diretorioAtual);
 	return documentos;
 }
-void LeituraArquivos::NormalizacaoPalavras(list <Documento> documentos, IndiceInvertido IndiceInvertido) {
+
+void LeituraArquivos::NormalizacaoPalavras(list<Documento> documentos, IndiceInvertido IndiceInvertido) {
 	for (Documento& documento : documentos){
 		ifstream arquivo;
 		arquivo.open(documento.ObterNome());
@@ -44,11 +38,12 @@ void LeituraArquivos::NormalizacaoPalavras(list <Documento> documentos, IndiceIn
 		}
 	}
 
-}//Fim da função de Normalização de Palavras
+}
 
 void LeituraArquivos::AdicionaIndice(Documento documento, string palavra, IndiceInvertido IndiceInvertido) {
 	set<Documento>& documentosAssociados = IndiceInvertido.ObterRegistros()[Palavra(palavra)];
-	if (documentosAssociados.find(documento)==documentosAssociados.end()) {
+	
+	if (documentosAssociados.find(documento) == documentosAssociados.end()) {
 		documentosAssociados.insert(documento);
 	}
 }

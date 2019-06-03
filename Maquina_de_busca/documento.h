@@ -24,7 +24,8 @@ class Documento
 	//obter nome string
 	string ObterNome();
 
-	bool operator<(const Documento& documento);
+	friend bool operator<(const Documento& documento1, const Documento& documento2);
+
 	map<Palavra, int> ObterPalavras();
 
 	// Atribuir coordenada a documento
