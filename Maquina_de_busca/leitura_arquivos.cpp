@@ -5,7 +5,6 @@ using namespace std;
 list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
 	list<Documento> documentos;
 
-	int contador;
 	DIR* diretorioAtual = NULL;
 
 	// Abre a pasta onde se encontra todos os arquivos a serem lidos

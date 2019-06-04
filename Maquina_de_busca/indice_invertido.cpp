@@ -13,17 +13,17 @@ map<Palavra, set<Documento>>& IndiceInvertido::ObterRegistros() {
 	return this->registros_;
 }
 
-void IndiceInvertido::CalcularCoordenadasParaMapaDePalavras(Documento documento, int numeroDeDocumentos)
+void IndiceInvertido::CalcularCoordenadasParaMapaDePalavras(Documento& documento, int numeroDeDocumentos)
 {
 	for (auto& palavra : documento.palavras_) {
 		int tf = documento.BuscarVezesQuePalavraAparece(palavra.first);
-		double idf = log10(numeroDeDocumentos / /* BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(indiceInvertido, palavra.first) */ 1);
+		double idf = log10((double)numeroDeDocumentos / BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(palavra.first));
 		documento.coordenada_.AtualizarValorDaPalavra(palavra.first, tf * idf);
 	}
 }
 
-int IndiceInvertido::BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(Palavra palavra)
+double IndiceInvertido::BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(Palavra palavra)
 {
 	set<Documento> documentos = this->registros_[palavra];
-	return (int)documentos.size();
+	return (double)documentos.size();
 }

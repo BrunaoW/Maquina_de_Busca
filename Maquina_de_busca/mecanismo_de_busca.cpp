@@ -10,6 +10,9 @@ void MecanismoDeBusca::RotinaMecanismoDeBusca()
 
 	this->documentos_ = LeituraArquivos::LerArquivosDaPastaAtual();
 	LeituraArquivos::LerPalavrasDeDocumentos(this->documentos_, this->indiceInvertido_);
+
+	InicializarCoordenadaPadrao();
+	CalcularCoordenadasParaOsDocumentos();
 }
 
 void MecanismoDeBusca::InicializarCoordenadaPadrao()
@@ -33,7 +36,7 @@ void MecanismoDeBusca::InicializarCoordenadaPadrao()
 void MecanismoDeBusca::CalcularCoordenadasParaOsDocumentos()
 {
 	for (Documento& documento : this->documentos_) {
-
+		indiceInvertido_.CalcularCoordenadasParaMapaDePalavras(documento, documentos_.size());
 	}
 }
 

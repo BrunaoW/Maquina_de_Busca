@@ -15,5 +15,5 @@ void Coordenada::IncluirPosicao(Palavra palavra, double valor) {
 
 void Coordenada::AtualizarValorDaPalavra(Palavra palavra, double valor)
 {
-	posicao_[palavra] = valor;
+	this->posicao_[palavra] = valor;
 }
