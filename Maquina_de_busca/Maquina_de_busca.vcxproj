@@ -119,7 +119,7 @@
     <ClCompile Include="coordenada.cpp" />
     <ClCompile Include="documento.cpp" />
     <ClCompile Include="indice_invertido.cpp" />
-    <ClCompile Include="informacoes_busca.cpp" />
+    <ClCompile Include="mecanismo_de_busca.cpp" />
     <ClCompile Include="leitura_arquivos.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="palavra.cpp" />
@@ -129,7 +129,7 @@
     <ClInclude Include="coordenada.h" />
     <ClInclude Include="documento.h" />
     <ClInclude Include="indice_invertido.h" />
-    <ClInclude Include="informacoes_busca.h" />
+    <ClInclude Include="mecanismo_de_busca.h" />
     <ClInclude Include="leitura_arquivos.h" />
     <ClInclude Include="palavra.h" />
   </ItemGroup>

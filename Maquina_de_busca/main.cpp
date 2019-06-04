@@ -1,13 +1,14 @@
 #include <iostream>
 #include <list>
 
-#include "leitura_arquivos.h"
-#include "documento.h"
+#include "mecanismo_de_busca.h"
 
 using namespace std;
 
 int main() {
-	list<Documento> documentos = LeituraArquivos::LerArquivosDaPastaAtual();
+	MecanismoDeBusca mecanismoDeBusca;
+
+	mecanismoDeBusca.RotinaMecanismoDeBusca();
 
 	return 0;
 }
