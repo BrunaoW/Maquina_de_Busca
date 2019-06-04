@@ -2,6 +2,8 @@
 #include <list>
 #include <sstream>
 #include <fstream>
+#include <string>
+#include <cctype>
 
 #include "dirent.h"
 #include "documento.h"
@@ -15,7 +17,7 @@ namespace LeituraArquivos {
 
 	void LerPalavrasDeDocumentos(list<Documento>& documentos, IndiceInvertido& indiceInvertido);
 
-	string NormalizarPalavra(string palavra);
+	void NormalizarPalavra(string& palavra);
 	
 	void AdicionarPalavraAoIndiceInvertido(Documento& documento, IndiceInvertido& IndiceInvertido, Palavra palavra);
 	
