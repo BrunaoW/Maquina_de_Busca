@@ -4,11 +4,15 @@
 #include "documento.h"
 #include "coordenada.h"
 #include "consulta.h"
+#include "leitura_arquivos.h"
 
-#ifndef INFORMACOES_BUSCA_H
-#define INFORMACOES_BUSCA_H
+#ifndef MECANISMO_DE_BUSCA_H
+#define MECANISMO_DE_BUSCA_H
 
-class InformacoesBusca
+using std::cout;
+using std::cin;
+
+class MecanismoDeBusca
 {
 	IndiceInvertido indiceInvertido_;
 	list<Documento> documentos_;
@@ -16,8 +20,11 @@ class InformacoesBusca
 	Consulta consulta_;
 
 	public:
-	// Inicializa Informacoes da busca
-	InformacoesBusca();
+	// Construtor para Informacoes da busca
+	MecanismoDeBusca();
+
+	// Rotina para o mecanismo de busca
+	void RotinaMecanismoDeBusca();
 
 	// Inicializa coordenada padrao, a partir das palavras carregadas
 	void InicializarCoordenadaPadrao();
@@ -25,8 +32,8 @@ class InformacoesBusca
 	// Calcula as coordenadas para cada documento
 	void CalcularCoordenadasParaOsDocumentos();
 
-	~InformacoesBusca();
+	~MecanismoDeBusca();
 };
-#endif // INFORMACOES_BUSCA_H
+#endif // MECANISMO_DE_BUSCA_H
 
 
