@@ -19,7 +19,7 @@ bool operator<(const Documento& documento1, const Documento& documento2)
 	return documento1.nome_ < documento2.nome_;
 }
 
-map<Palavra, int> Documento::ObterPalavras()
+map<Palavra, int>& Documento::ObterPalavras()
 {
 	return this ->palavras_;
 }

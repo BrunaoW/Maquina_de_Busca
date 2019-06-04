@@ -26,7 +26,7 @@ class Documento
 
 	friend bool operator<(const Documento& documento1, const Documento& documento2);
 
-	map<Palavra, int> ObterPalavras();
+	map<Palavra, int>& ObterPalavras();
 
 	// Atribuir coordenada a documento
 	void AtribuirCoordenada(Coordenada coordenada);
