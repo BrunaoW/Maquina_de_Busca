@@ -74,7 +74,7 @@ void LeituraArquivos::NormalizarPalavra(string& palavra) {
 		// Verifica se existe alguma pontuacao separando a palavra, se nao, adiciona o caracter na palavra
 		if (!ispunct((unsigned char)caracter))
 		{
-			palavraNormalizada += caracter;
+			palavraNormalizada += tolower((unsigned char)caracter);
 		}
 	}
 	palavra = palavraNormalizada;
