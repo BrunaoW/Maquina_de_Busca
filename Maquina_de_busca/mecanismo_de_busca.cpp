@@ -36,7 +36,7 @@ void MecanismoDeBusca::InicializarCoordenadaPadrao()
 void MecanismoDeBusca::CalcularCoordenadasParaOsDocumentos()
 {
 	for (Documento& documento : this->documentos_) {
-		indiceInvertido_.CalcularCoordenadasParaMapaDePalavras(documento, documentos_.size());
+		indiceInvertido_.CalcularCoordenadasParaMapaDePalavras(documento, (int)documentos_.size());
 	}
 }
 
