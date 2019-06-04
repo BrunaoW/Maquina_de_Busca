@@ -6,6 +6,11 @@ Consulta::Consulta()
 {
 }
 
+map<Palavra, double> Consulta::ObterCoordenada()
+{
+	return coordenada_.ObterPosicao();
+}
+
 
 Consulta::~Consulta()
 {

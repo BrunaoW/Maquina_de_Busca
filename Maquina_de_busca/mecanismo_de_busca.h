@@ -5,12 +5,13 @@
 #include "coordenada.h"
 #include "consulta.h"
 #include "leitura_arquivos.h"
+#include "cmath"
+
 
 #ifndef MECANISMO_DE_BUSCA_H
 #define MECANISMO_DE_BUSCA_H
 
-using std::cout;
-using std::cin;
+using namespace std;
 
 class MecanismoDeBusca
 {
@@ -19,7 +20,8 @@ class MecanismoDeBusca
 	Coordenada coordenadaPadrao_;
 	Consulta consulta_;
 
-	public:
+
+public:
 	// Construtor para Informacoes da busca
 	MecanismoDeBusca();
 
@@ -28,9 +30,15 @@ class MecanismoDeBusca
 
 	// Inicializa coordenada padrao, a partir das palavras carregadas
 	void InicializarCoordenadaPadrao();
-	
+
 	// Calcula as coordenadas para cada documento
 	void CalcularCoordenadasParaOsDocumentos();
+
+	//Método para calcular a proximidade
+	void Proximidade();
+
+	//Método para retornar a lista ordenada das proximidades
+	list<Documento> OrdenaProximidade();
 
 	~MecanismoDeBusca();
 };

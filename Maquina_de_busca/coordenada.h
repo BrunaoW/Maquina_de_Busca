@@ -14,6 +14,8 @@ class Coordenada
 	public:
 	// Inicializar coordenada
 	Coordenada();
+
+	map<Palavra, double> ObterPosicao();
 	
 	~Coordenada();
 

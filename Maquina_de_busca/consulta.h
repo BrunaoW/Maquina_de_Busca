@@ -10,9 +10,12 @@ class Consulta
 {
 	list<Palavra> palavras_;
 	Coordenada coordenada_;
+
 	public:
 	// Construtor da Consulta
 	Consulta();
+
+	map<Palavra, double>ObterCoordenada();
 
 	~Consulta();
 

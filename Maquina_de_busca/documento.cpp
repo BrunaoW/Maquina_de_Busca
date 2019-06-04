@@ -14,6 +14,16 @@ string Documento::ObterNome()
 	return this->nome_;
 }
 
+map<Palavra, double> Documento::ObterCoordenada()
+{
+	return coordenada_.ObterPosicao();
+}
+
+void Documento::Proximidade(double proximidade_)
+{
+
+}
+
 bool operator<(const Documento& documento1, const Documento& documento2)
 {
 	return documento1.nome_ < documento2.nome_;

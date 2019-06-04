@@ -4,6 +4,11 @@ Coordenada::Coordenada()
 {
 }
 
+map<Palavra, double> Coordenada::ObterPosicao()
+{
+	return posicao_;
+}
+
 
 Coordenada::~Coordenada()
 {

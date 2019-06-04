@@ -40,6 +40,23 @@ void MecanismoDeBusca::CalcularCoordenadasParaOsDocumentos()
 	}
 }
 
+void MecanismoDeBusca::Proximidade()
+{
+	for (Documento& documento : documentos_) {
+		double numerador = 0, denominador = 0;
+		for (auto& posicaoPalavra : documento.ObterCoordenada()) {
+			numerador += consulta_.ObterCoordenada()[posicaoPalavra.first] * posicaoPalavra.second;  //Conta para o numerador
+			denominador += sqrt(pow(posicaoPalavra.second, 2)) * sqrt(pow(consulta_.ObterCoordenada()[posicaoPalavra.first],2));
+		}//iterando sobre as palavras de um documento
+		documento.Proximidade(numerador/denominador);
+	}//iterando sobre cada documento
+}
+
+list<Documento> MecanismoDeBusca::OrdenaProximidade()
+{
+	
+}
+
 MecanismoDeBusca::~MecanismoDeBusca()
 {
 }
