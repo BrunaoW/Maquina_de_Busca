@@ -18,6 +18,8 @@ class Consulta
 
 	// Atribuir coordenada padrao a consulta
 	void AtribuirCoordenada(Coordenada coordenada);
+
+	void AtribuirPalavras(string frase);
 };
 
 #endif // CONSULTA_H

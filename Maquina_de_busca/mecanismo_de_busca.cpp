@@ -13,6 +13,10 @@ void MecanismoDeBusca::RotinaMecanismoDeBusca()
 
 	InicializarCoordenadaPadrao();
 	CalcularCoordenadasParaOsDocumentos();
+
+	string fraseConsulta;
+	cout << "Digite a palavra que deseja buscar: " << endl;
+	cin >> fraseConsulta;
 }
 
 void MecanismoDeBusca::InicializarCoordenadaPadrao()
