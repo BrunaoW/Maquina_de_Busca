@@ -16,7 +16,8 @@ void MecanismoDeBusca::RotinaMecanismoDeBusca()
 
 	string fraseConsulta;
 	cout << "Digite a palavra que deseja buscar: " << endl;
-	cin >> fraseConsulta;
+	getline(cin, fraseConsulta);
+	this->consulta_.AtribuirPalavras(fraseConsulta);
 }
 
 void MecanismoDeBusca::InicializarCoordenadaPadrao()
