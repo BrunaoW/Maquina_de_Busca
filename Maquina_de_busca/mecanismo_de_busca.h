@@ -1,4 +1,5 @@
 #include <list>
+#include <string>
 
 #include "indice_invertido.h"
 #include "documento.h"
