@@ -47,6 +47,7 @@ string ComandosConsole::ImprimirMensagemComInput(const string& mensagem)
 	cout << "#" << endl;
 
 	cout << "# ";
+	cin.ignore();
 	getline(cin, retornoInput);
 	
 	cout << "# ";
@@ -83,7 +84,50 @@ void ComandosConsole::ImprimirListaDeItens(string titulo, vector<string> itens)
 	cout << endl;
 }
 
+bool ComandosConsole::MenuContinuarNoPrograma(string mensagem, string opcaoAfirmativa)
+{
+	int i;
+	for (i = 0; i < larguraMensagens; i++) cout << "#";
+	cout << endl << "#";
+
+	for (i = 0; i < larguraMensagens - 2; i++) cout << " ";
+	cout << "#" << endl;
+
+	cout << "# " << mensagem;
+	for (i = 0; i < larguraMensagens - mensagem.size() - 4; i++) cout << " ";
+	cout << " #" << endl;
+
+	cout << "#";
+	for (i = 0; i < larguraMensagens - 2; i++) cout << " ";
+	cout << "#" << endl;
+
+	cout << "# [1] " << opcaoAfirmativa;
+	for (i = 0; i < larguraMensagens - opcaoAfirmativa.size() - 8; i++) cout << " ";
+	cout << " #" << endl;
+
+	cout << "#";
+	for (i = 0; i < larguraMensagens - 2; i++) cout << " ";
+	cout << "#" << endl;
+
+	cout << "# [0] Sair";
+	for (i = 0; i < larguraMensagens - 12; i++) cout << " ";
+	cout << " #" << endl;
+
+	cout << "#";
+	for (i = 0; i < larguraMensagens - 2; i++) cout << " ";
+	cout << "#" << endl;
+
+	for (i = 0; i < larguraMensagens; i++) cout << "#";
+	cout << endl;
+
+	char c;
+	cin.clear();
+	cin >> c;
+
+	return c == '1';
+}
+
 void ComandosConsole::LimparTela()
 {
-	for (int i = 0; i < 100; i++) cout << endl;
+	for (int i = 0; i < 200; i++) cout << endl;
 }

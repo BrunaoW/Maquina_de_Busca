@@ -14,16 +14,21 @@ void MecanismoDeBusca::RotinaMecanismoDeBusca()
 	InicializarCoordenadaPadrao();
 	CalcularCoordenadasParaOsDocumentos();
 
-	string fraseConsulta = ComandosConsole::ImprimirMensagemComInput("Digite a palavra que deseja buscar: ");
+	do {
+		string fraseConsulta = ComandosConsole::ImprimirMensagemComInput("Digite a palavra que deseja buscar: ");
 	
-	this->consulta_.AtribuirPalavras(fraseConsulta);
-	this->consulta_.CalcularCoordenadasParaPalavras(this->indiceInvertido_, (int)this->documentos_.size());
+		this->consulta_.AtribuirPalavras(fraseConsulta);
+		this->consulta_.CalcularCoordenadasParaPalavras(this->indiceInvertido_, (int)this->documentos_.size());
 
-	CalcularProximidadeDeDocumentos();
-	OrdenarDocumentosPorProximidade();
+		CalcularProximidadeDeDocumentos();
+		OrdenarDocumentosPorProximidade();
 
-	ComandosConsole::ImprimirListaDeItens("Os documentos mais proximos a sua consulta sao: ", Documento::ObterNomesDeDocumentos(this->documentos_));
-	system("pause");
+		ComandosConsole::ImprimirListaDeItens("Os documentos mais proximos a sua consulta sao: ", Documento::ObterNomesDeDocumentos(this->documentos_));
+	
+		if (ComandosConsole::MenuContinuarNoPrograma("Deseja fazer outra consulta?", "Sim")) ComandosConsole::LimparTela();
+		else break;
+
+	} while (true);
 }
 
 void MecanismoDeBusca::InicializarCoordenadaPadrao()
