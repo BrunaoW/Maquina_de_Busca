@@ -19,7 +19,7 @@ map<Palavra, double> Documento::ObterCoordenada()
 	return coordenada_.ObterPosicao();
 }
 
-void Documento::Proximidade(double proximidade_)
+void Documento::AtribuirProximidade(double proximidade_)
 {
 
 }
@@ -32,6 +32,11 @@ bool operator<(const Documento& documento1, const Documento& documento2)
 map<Palavra, int>& Documento::ObterPalavras()
 {
 	return this ->palavras_;
+}
+
+double Documento::ObterProximidade() const
+{
+	return this->proximidade_;
 }
 
 void Documento::AtribuirCoordenada(Coordenada coordenada) {

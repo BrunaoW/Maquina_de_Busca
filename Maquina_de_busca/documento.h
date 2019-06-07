@@ -26,11 +26,13 @@ class Documento
 	string ObterNome();
 
 	map<Palavra, double> ObterCoordenada();
-	void Proximidade(double proximidade_);
+	void AtribuirProximidade(double proximidade_);
 
 	friend bool operator<(const Documento& documento1, const Documento& documento2);
 
 	map<Palavra, int>& ObterPalavras();
+
+	double ObterProximidade() const;
 
 	// Atribuir coordenada a documento
 	void AtribuirCoordenada(Coordenada coordenada);

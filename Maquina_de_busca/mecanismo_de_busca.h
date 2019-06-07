@@ -1,4 +1,5 @@
 #include <list>
+#include <algorithm>
 
 #include "indice_invertido.h"
 #include "documento.h"
@@ -35,10 +36,10 @@ public:
 	void CalcularCoordenadasParaOsDocumentos();
 
 	//Método para calcular a proximidade
-	void Proximidade();
+	void CalcularProximidadeDeDocumentos();
 
 	//Método para retornar a lista ordenada das proximidades
-	list<Documento> OrdenaProximidade();
+	void OrdenarDocumentosPorProximidade();
 
 	~MecanismoDeBusca();
 };
