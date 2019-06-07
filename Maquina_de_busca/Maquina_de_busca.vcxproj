@@ -116,6 +116,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="comandos_console.cpp" />
     <ClCompile Include="consulta.cpp" />
     <ClCompile Include="coordenada.cpp" />
     <ClCompile Include="documento.cpp" />
@@ -126,6 +127,7 @@
     <ClCompile Include="palavra.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="comandos_console.h" />
     <ClInclude Include="consulta.h" />
     <ClInclude Include="coordenada.h" />
     <ClInclude Include="documento.h" />

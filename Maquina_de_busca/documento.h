@@ -1,4 +1,6 @@
 #include <map>
+#include <list>
+#include <vector>
 #include <iostream>
 #include <cmath>
 
@@ -39,6 +41,9 @@ class Documento
 
 	// Buscar palavra que existe no documento e retornar a quantidade de vezes que ela aparece
 	int BuscarVezesQuePalavraAparece(Palavra palavra);
+
+	// Obter lista de nomes dos documentos
+	static vector<string> ObterNomesDeDocumentos(list<Documento> documentos);
 
 	friend class IndiceInvertido;
 

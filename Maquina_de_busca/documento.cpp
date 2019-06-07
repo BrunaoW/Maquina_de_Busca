@@ -48,6 +48,17 @@ int Documento::BuscarVezesQuePalavraAparece(Palavra palavra)
 	return this->palavras_[palavra];
 }
 
+vector<string> Documento::ObterNomesDeDocumentos(list<Documento> documentos)
+{
+	vector<string> listaDeNomes;
+
+	for (Documento& documento : documentos) {
+		listaDeNomes.push_back(documento.nome_);
+	}
+
+	return listaDeNomes;
+}
+
 Documento::~Documento()
 {
 }

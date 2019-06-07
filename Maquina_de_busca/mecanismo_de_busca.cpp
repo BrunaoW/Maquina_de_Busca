@@ -6,7 +6,7 @@ MecanismoDeBusca::MecanismoDeBusca()
 
 void MecanismoDeBusca::RotinaMecanismoDeBusca()
 {
-	cout << "Bem-vindo a rotina de busca de palavras" << endl;
+	ComandosConsole::ImprimirContainerDeMensagem("Bem-vindo a rotina de busca de palavras", "Processando informacoes da pasta. Aguarde...");
 
 	this->documentos_ = LeituraArquivos::LerArquivosDaPastaAtual();
 	LeituraArquivos::LerPalavrasDeDocumentos(this->documentos_, this->indiceInvertido_);
@@ -14,14 +14,16 @@ void MecanismoDeBusca::RotinaMecanismoDeBusca()
 	InicializarCoordenadaPadrao();
 	CalcularCoordenadasParaOsDocumentos();
 
-	string fraseConsulta;
-	cout << "Digite a palavra que deseja buscar: " << endl;
-	getline(cin, fraseConsulta);
+	string fraseConsulta = ComandosConsole::ImprimirMensagemComInput("Digite a palavra que deseja buscar: ");
+	
 	this->consulta_.AtribuirPalavras(fraseConsulta);
 	this->consulta_.CalcularCoordenadasParaPalavras(this->indiceInvertido_, (int)this->documentos_.size());
 
 	CalcularProximidadeDeDocumentos();
 	OrdenarDocumentosPorProximidade();
+
+	ComandosConsole::ImprimirListaDeItens("Os documentos mais proximos a sua consulta sao: ", Documento::ObterNomesDeDocumentos(this->documentos_));
+	system("pause");
 }
 
 void MecanismoDeBusca::InicializarCoordenadaPadrao()
