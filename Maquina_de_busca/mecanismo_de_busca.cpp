@@ -18,6 +18,10 @@ void MecanismoDeBusca::RotinaMecanismoDeBusca()
 	cout << "Digite a palavra que deseja buscar: " << endl;
 	getline(cin, fraseConsulta);
 	this->consulta_.AtribuirPalavras(fraseConsulta);
+	this->consulta_.CalcularCoordenadasParaPalavras(this->indiceInvertido_, (int)this->documentos_.size());
+
+	CalcularProximidadeDeDocumentos();
+	OrdenarDocumentosPorProximidade();
 }
 
 void MecanismoDeBusca::InicializarCoordenadaPadrao()
@@ -49,21 +53,23 @@ void MecanismoDeBusca::CalcularProximidadeDeDocumentos()
 {
 	//iterando sobre cada documento
 	for (Documento& documento : documentos_) {
-		double numerador = 0, denominador = 0;
+		double numerador = 0, denominador = 0, somatorioPosicaoDocumento = 0, somatorioPosicaoConsulta = 0;
 		
 		//iterando sobre as palavras de um documento
 		for (auto& posicaoPalavra : documento.ObterCoordenada()) {
 			//Conta para o numerador
 			numerador += consulta_.ObterCoordenada()[posicaoPalavra.first] * posicaoPalavra.second;
-			denominador += sqrt(pow(posicaoPalavra.second, 2)) * sqrt(pow(consulta_.ObterCoordenada()[posicaoPalavra.first],2));
+			somatorioPosicaoDocumento += pow(posicaoPalavra.second, 2);
+			somatorioPosicaoConsulta += pow(consulta_.ObterCoordenada()[posicaoPalavra.first], 2);
 		}
+		denominador += sqrt(somatorioPosicaoDocumento) * sqrt(somatorioPosicaoConsulta);
 		documento.AtribuirProximidade(numerador/denominador);
 	}
 }
 
 void MecanismoDeBusca::OrdenarDocumentosPorProximidade()
 {
-	this->documentos_.sort([](const Documento& d1, const Documento& d2) { return d1.ObterProximidade() < d2.ObterProximidade(); });
+	this->documentos_.sort([](const Documento& d1, const Documento& d2) { return d1.ObterProximidade() > d2.ObterProximidade(); });
 }
 
 MecanismoDeBusca::~MecanismoDeBusca()

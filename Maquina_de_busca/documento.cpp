@@ -21,7 +21,7 @@ map<Palavra, double> Documento::ObterCoordenada()
 
 void Documento::AtribuirProximidade(double proximidade_)
 {
-
+	this->proximidade_ = proximidade_;
 }
 
 bool operator<(const Documento& documento1, const Documento& documento2)

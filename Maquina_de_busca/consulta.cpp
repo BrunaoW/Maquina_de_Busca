@@ -19,6 +19,16 @@ void Consulta::AtribuirCoordenada(Coordenada coordenada)
 	this->coordenada_ = coordenada;
 }
 
+void Consulta::CalcularCoordenadasParaPalavras(IndiceInvertido& indiceInvertido, int numeroDeDocumentos)
+{
+	for (auto& palavra : palavras_) {
+		double tf = palavra.second;
+		double idf = log10(numeroDeDocumentos / indiceInvertido.BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(palavra.first));
+	
+		this->coordenada_.AtualizarValorDaPalavra(palavra.first, tf * idf);
+	}
+}
+
 void Consulta::AtribuirPalavras(string frase)
 {
 	char* fraseASeparar = &frase[0u];
@@ -27,7 +37,10 @@ void Consulta::AtribuirPalavras(string frase)
 	strtok(fraseASeparar, tokenSeparador);
 
 	while (fraseASeparar != NULL) {
-		this->palavras_.push_back(string(fraseASeparar));
+		string fraseAAdicionar(fraseASeparar);
+
+		LeituraArquivos::NormalizarPalavra(fraseAAdicionar);
+		this->palavras_[Palavra(fraseAAdicionar)]++;
 		fraseASeparar = strtok(NULL, tokenSeparador);
 	}
 }

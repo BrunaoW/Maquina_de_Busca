@@ -1,14 +1,17 @@
-#include <list>
+#include <map>
+#include <cmath>
 
 #include "palavra.h"
 #include "coordenada.h"
+#include "indice_invertido.h"
+#include "leitura_arquivos.h"
 
 #ifndef CONSULTA_H
 #define CONSULTA_H
 
 class Consulta
 {
-	list<Palavra> palavras_;
+	map<Palavra, int> palavras_;
 	Coordenada coordenada_;
 
 	public:
@@ -21,6 +24,9 @@ class Consulta
 
 	// Atribuir coordenada padrao a consulta
 	void AtribuirCoordenada(Coordenada coordenada);
+
+	// Calcular coordenadas para cada palavra
+	void CalcularCoordenadasParaPalavras(IndiceInvertido& indiceInvertido, int numeroDeDocumentos);
 
 	void AtribuirPalavras(string frase);
 };
