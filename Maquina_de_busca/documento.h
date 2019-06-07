@@ -15,6 +15,7 @@ class Documento
 	string nome_;
 	map<Palavra, int> palavras_;
 	Coordenada coordenada_;
+	double proximidade_;
 
 	public:
 	// Inicializar documento
@@ -24,9 +25,14 @@ class Documento
 	//obter nome string
 	string ObterNome();
 
+	map<Palavra, double> ObterCoordenada();
+	void AtribuirProximidade(double proximidade_);
+
 	friend bool operator<(const Documento& documento1, const Documento& documento2);
 
 	map<Palavra, int>& ObterPalavras();
+
+	double ObterProximidade() const;
 
 	// Atribuir coordenada a documento
 	void AtribuirCoordenada(Coordenada coordenada);

@@ -45,6 +45,27 @@ void MecanismoDeBusca::CalcularCoordenadasParaOsDocumentos()
 	}
 }
 
+void MecanismoDeBusca::CalcularProximidadeDeDocumentos()
+{
+	//iterando sobre cada documento
+	for (Documento& documento : documentos_) {
+		double numerador = 0, denominador = 0;
+		
+		//iterando sobre as palavras de um documento
+		for (auto& posicaoPalavra : documento.ObterCoordenada()) {
+			//Conta para o numerador
+			numerador += consulta_.ObterCoordenada()[posicaoPalavra.first] * posicaoPalavra.second;
+			denominador += sqrt(pow(posicaoPalavra.second, 2)) * sqrt(pow(consulta_.ObterCoordenada()[posicaoPalavra.first],2));
+		}
+		documento.AtribuirProximidade(numerador/denominador);
+	}
+}
+
+void MecanismoDeBusca::OrdenarDocumentosPorProximidade()
+{
+	this->documentos_.sort([](const Documento& d1, const Documento& d2) { return d1.ObterProximidade() < d2.ObterProximidade(); });
+}
+
 MecanismoDeBusca::~MecanismoDeBusca()
 {
 }
