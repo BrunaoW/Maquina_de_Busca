@@ -18,8 +18,10 @@ class Consulta
 	// Construtor da Consulta
 	Consulta();
 
+	// Obter coordenadas da consulta
 	map<Palavra, double>ObterCoordenada();
 
+	// Destrutor de consulta
 	~Consulta();
 
 	// Atribuir coordenada padrao a consulta
@@ -28,6 +30,7 @@ class Consulta
 	// Calcular coordenadas para cada palavra
 	void CalcularCoordenadasParaPalavras(IndiceInvertido& indiceInvertido, int numeroDeDocumentos);
 
+	// Atribui palavras quando o usuario realiza a consulta
 	void AtribuirPalavras(string frase);
 };
 

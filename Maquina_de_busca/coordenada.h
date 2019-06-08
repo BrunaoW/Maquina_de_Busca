@@ -12,11 +12,14 @@ class Coordenada
 {
 	map<Palavra, double> posicao_;
 	public:
-	// Inicializar coordenada
+
+	// Construtor da coordenada
 	Coordenada();
 
+	// Obtem as coordenadas
 	map<Palavra, double> ObterPosicao();
 	
+	// Destrutor de coordenada
 	~Coordenada();
 
 	// Incluir um novo eixo, i.e., uma nova palavra, e seu respectivo valor

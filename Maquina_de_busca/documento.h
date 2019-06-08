@@ -20,20 +20,29 @@ class Documento
 	double proximidade_;
 
 	public:
+	
 	// Inicializar documento
 	Documento();
+	
 	// Inicializar o documento com o nome do arquivo
 	Documento(string nome);
-	//obter nome string
+	
+	// Obter nome string
 	string ObterNome();
 
+	// Obter coordenada do documento
 	map<Palavra, double> ObterCoordenada();
+
+	// Atribui proximidade ao realizar uma consulta
 	void AtribuirProximidade(double proximidade_);
 
+	// Definido um comparador para acessar um map de documentos
 	friend bool operator<(const Documento& documento1, const Documento& documento2);
 
+	// Obtem as palavras do documento
 	map<Palavra, int>& ObterPalavras();
 
+	// Obtem a proximidade dos documentos
 	double ObterProximidade() const;
 
 	// Atribuir coordenada a documento
@@ -45,6 +54,7 @@ class Documento
 	// Obter lista de nomes dos documentos
 	static vector<string> ObterNomesDeDocumentos(list<Documento> documentos);
 
+	// Indice Invertido declarado como classe amiga para ela ter acesso as propriedades do documento
 	friend class IndiceInvertido;
 
 	~Documento();

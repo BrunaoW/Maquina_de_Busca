@@ -22,11 +22,13 @@ class IndiceInvertido
 	// Retornar os registros do indice invertido
 	map<Palavra, set<Documento>>& ObterRegistros();
 	
+	// Calcula coordenadas para cada um dos documentos, a partir do indice invertido
 	void CalcularCoordenadasParaMapaDePalavras(Documento& documento, int numeroDeDocumentos);
 
 	// Retorna a quantidade de documentos associados a uma palavra
 	double BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(Palavra palavra);
 
+	// Destrutor do Indice Invertido
 	~IndiceInvertido();
 };
 
