@@ -1,7 +1,7 @@
 CXX := g++
 CXX_Flags := -Wall -Wextra -std=c++14
 
-all: clean MaquinaDeBusca
+all: criarPastaBin clean MaquinaDeBusca
 
 MaquinaDeBusca: bin/main.o bin/mecanismo_de_busca.o bin/comandos_console.o bin/consulta.o bin/coordenada.o bin/documento.o bin/indice_invertido.o bin/leitura_arquivos.o bin/palavra.o
 	${CXX} ${CXX_Flags} bin/main.o bin/mecanismo_de_busca.o bin/comandos_console.o bin/consulta.o bin/coordenada.o bin/documento.o bin/indice_invertido.o bin/leitura_arquivos.o bin/palavra.o -o MaquinaDeBusca
@@ -35,3 +35,6 @@ bin/palavra.o: Maquina_de_Busca/palavra.cpp
 
 clean:
 	rm -f *.o MaquinaDeBusca
+
+criarPastaBin:
+	mkdir -p bin
