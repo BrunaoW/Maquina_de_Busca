@@ -2,13 +2,13 @@
 
 using namespace std;
 
-list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
+list<Documento> LeituraArquivos::LerArquivosDaPasta(string caminhoDaPasta) {
 	list<Documento> documentos;
 
 	DIR* diretorioAtual = NULL;
 
 	// Abre a pasta onde se encontra todos os arquivos a serem lidos
-	diretorioAtual = opendir("dataset_teste");
+	diretorioAtual = opendir(caminhoDaPasta.c_str());
 
 	dirent* arquivo = NULL;
 
@@ -34,22 +34,23 @@ list<Documento> LeituraArquivos::LerArquivosDaPastaAtual() {
 	return documentos;
 }
 
-void LeituraArquivos::LerPalavrasDeDocumentos(list<Documento>& documentos, IndiceInvertido& indiceInvertido) {
+void LeituraArquivos::LerPalavrasDeDocumentos(list<Documento>& documentos, IndiceInvertido& indiceInvertido, string caminhoDaPasta) {
 	for (Documento& documento : documentos) {
 		ifstream arquivo;
-		arquivo.open("dataset_teste/" + documento.ObterNome());
+		arquivo.open(caminhoDaPasta + documento.ObterNome());
 		string palavra;
 
 		while (arquivo >> palavra) {
 			NormalizarPalavra(palavra);
-			AdicionarPalavraAoDocumento(documento, Palavra(palavra));
-			AdicionarPalavraAoIndiceInvertido(documento, indiceInvertido, Palavra(palavra));
+			Palavra palavraAIncluir(palavra);
+			AdicionarPalavraAoDocumento(documento, palavraAIncluir);
+			AdicionarPalavraAoIndiceInvertido(documento, indiceInvertido, palavraAIncluir);
 		}
 	}
 
 }
 
-void LeituraArquivos::AdicionarPalavraAoIndiceInvertido(Documento& documento, IndiceInvertido& IndiceInvertido, Palavra palavra) {
+void LeituraArquivos::AdicionarPalavraAoIndiceInvertido(Documento& documento, IndiceInvertido& IndiceInvertido, Palavra& palavra) {
 	// Ao mesmo tempo que busca os documentos associados, a palavra ja eh inclusa no indice invertido
 	set<Documento>& documentosAssociados = IndiceInvertido.ObterRegistros()[palavra];
 	
@@ -60,7 +61,7 @@ void LeituraArquivos::AdicionarPalavraAoIndiceInvertido(Documento& documento, In
 	}
 }
 
-void LeituraArquivos::AdicionarPalavraAoDocumento(Documento& documento, Palavra palavra) {
+void LeituraArquivos::AdicionarPalavraAoDocumento(Documento& documento, Palavra& palavra) {
 	map<Palavra, int>& palavras = documento.ObterPalavras();
 
 	// Ao mesmo tempo que inclui a palavra na lista de palavras no documento, ja incrementa a contagem de quantas vezes ela apareceu

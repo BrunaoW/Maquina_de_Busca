@@ -1,10 +1,13 @@
 CXX := g++
 CXX_Flags := -Wall -Wextra -std=c++14
 
-all: criarPastaBin clean MaquinaDeBusca
+all: criarPastaBin clean MaquinaDeBusca MaquinaDeBuscaTeste
 
 MaquinaDeBusca: bin/main.o bin/mecanismo_de_busca.o bin/comandos_console.o bin/consulta.o bin/coordenada.o bin/documento.o bin/indice_invertido.o bin/leitura_arquivos.o bin/palavra.o
-	${CXX} ${CXX_Flags} bin/main.o bin/mecanismo_de_busca.o bin/comandos_console.o bin/consulta.o bin/coordenada.o bin/documento.o bin/indice_invertido.o bin/leitura_arquivos.o bin/palavra.o -o MaquinaDeBusca
+	${CXX} ${CXX_Flags} $^ -o $@
+
+MaquinaDeBuscaTeste: bin/mecanismo_de_busca.o bin/comandos_console.o bin/consulta.o bin/coordenada.o bin/documento.o bin/indice_invertido.o bin/leitura_arquivos.o bin/palavra.o Maquina_de_Busca/maquina_de_busca.teste.cpp
+	${CXX} ${CXX_Flags} -I Maquina_de_Busca/include/ $^ -o $@
 
 bin/main.o: Maquina_de_Busca/main.cpp
 	${CXX} ${CXX_Flags} -c $^ -o $@

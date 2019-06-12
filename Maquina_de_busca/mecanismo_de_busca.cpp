@@ -6,17 +6,23 @@ MecanismoDeBusca::MecanismoDeBusca()
 
 void MecanismoDeBusca::RotinaMecanismoDeBusca()
 {
-	ComandosConsole::ImprimirContainerDeMensagem("Bem-vindo a rotina de busca de palavras", "Processando informacoes da pasta. Aguarde...");
+	ComandosConsole::ImprimirContainerDeMensagem("Bem-vindo a rotina de busca de palavras", "Insira o caminho da pasta que deseja buscar...");
 
-	this->documentos_ = LeituraArquivos::LerArquivosDaPastaAtual();
-	LeituraArquivos::LerPalavrasDeDocumentos(this->documentos_, this->indiceInvertido_);
+	string caminho;
+	cin >> caminho;
 
-	InicializarCoordenadaPadrao();
+	if (caminho.back() != '/' || caminho.back() != '\\')
+		caminho += '/';
+
+	this->documentos_ = LeituraArquivos::LerArquivosDaPasta(caminho);
+	LeituraArquivos::LerPalavrasDeDocumentos(this->documentos_, this->indiceInvertido_, caminho);
+
 	CalcularCoordenadasParaOsDocumentos();
 
 	do {
-		string fraseConsulta = ComandosConsole::ImprimirMensagemComInput("Digite a palavra que deseja buscar: ");
-	
+		string fraseConsulta = ComandosConsole::ImprimirMensagemComInput("Digite os termos que deseja buscar: ");
+		
+		this->consulta_ = Consulta();
 		this->consulta_.AtribuirPalavras(fraseConsulta);
 		this->consulta_.CalcularCoordenadasParaPalavras(this->indiceInvertido_, (int)this->documentos_.size());
 
@@ -25,28 +31,12 @@ void MecanismoDeBusca::RotinaMecanismoDeBusca()
 
 		ComandosConsole::ImprimirListaDeItens("Os documentos mais proximos a sua consulta sao: ", Documento::ObterNomesDeDocumentos(this->documentos_));
 	
-		if (ComandosConsole::MenuContinuarNoPrograma("Deseja fazer outra consulta?", "Sim")) ComandosConsole::LimparTela();
-		else break;
+		if (ComandosConsole::MenuContinuarNoPrograma("Deseja fazer outra consulta?", "Sim")) 
+			ComandosConsole::LimparTela();
+		else 
+			break;
 
 	} while (true);
-}
-
-void MecanismoDeBusca::InicializarCoordenadaPadrao()
-{
-	Coordenada coordenadaACriar;
-	map<Palavra, set<Documento>>& registros = indiceInvertido_.ObterRegistros();
-
-	for (const auto& registro : registros) {
-		coordenadaACriar.IncluirPosicao(registro.first, 0);
-	}
-
-	this->coordenadaPadrao_ = coordenadaACriar;
-
-	for (Documento& documento : documentos_) {
-		documento.AtribuirCoordenada(this->coordenadaPadrao_);
-	}
-
-	this->consulta_.AtribuirCoordenada(this->coordenadaPadrao_);
 }
 
 void MecanismoDeBusca::CalcularCoordenadasParaOsDocumentos()
@@ -70,7 +60,7 @@ void MecanismoDeBusca::CalcularProximidadeDeDocumentos()
 			somatorioPosicaoConsulta += pow(consulta_.ObterCoordenada()[posicaoPalavra.first], 2);
 		}
 		denominador += sqrt(somatorioPosicaoDocumento) * sqrt(somatorioPosicaoConsulta);
-		documento.AtribuirProximidade(numerador/denominador);
+		documento.AtribuirProximidade(denominador == 0 ? 0 : numerador/denominador);
 	}
 }
 
