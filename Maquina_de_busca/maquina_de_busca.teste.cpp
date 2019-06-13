@@ -17,4 +17,26 @@ TEST_SUITE("Leitura de palavras e arquivos") {
 		CHECK(palavra2 == "testedeseparacaodecaracteres");
 		CHECK(palavra1 == "");
 	}
+	TEST_CASE("Normalizar palavra Caixa Alta") {
+		string palavra5 = "TESTANDO";
+		string palavra6 = "nOrMaLiZaNdO PaLaVrA";
+
+		LeituraArquivos::NormalizarPalavra(palavra5);
+		LeituraArquivos::NormalizarPalavra(palavra6);
+
+		CHECK(palavra5 = "testando");
+		CHECK(palavra6 = "normalizando palavra");
+	}
+}
+TEST_SUITE("Coordenadas") {
+	TEST_CASE("Atribuir coordenada") {
+		double coordenada = 5;
+		Consulta::AtribuirCoordenada(coordenada);
+		CHECK(coordenada_ = "5");
+	}
+	TEST_CASE("Atualizar valor da palavra") {
+		double valor = 12;
+		Coordenada::AtualizarValorDaPalavra(palavra, valor);
+		CHECK(posicao_[palavra] = "12");
+	}
 }
