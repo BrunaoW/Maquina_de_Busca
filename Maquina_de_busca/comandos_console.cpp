@@ -40,7 +40,7 @@ string ComandosConsole::ImprimirMensagemComInput(const string& mensagem)
 	cout << "#" << endl;
 
 	cout << "# " << mensagem;
-	for (i = 0; i < larguraMensagens - (int)mensagem.size() - 4; i++) cout << " ";
+	for (i = 0; i < larguraMensagens - ((int)mensagem.size()) - 4; i++) cout << " ";
 	cout << " #" << endl << "#";
 
 	for (i = 0; i < larguraMensagens - 2; i++) cout << " ";
@@ -70,9 +70,16 @@ void ComandosConsole::ImprimirListaDeItens(string titulo, vector<string> itens)
 	for (i = 0; i < larguraMensagens - 2; i++) cout << " ";
 	cout << "#" << endl;
 
-	for (j = 0; j < itens.size(); j++) {
+	cout << "# " << titulo;
+	for (i = 0; i < larguraMensagens - 4 - ((int)titulo.size()); i++) cout << " ";
+	cout << " #" << endl << "#";
+
+	for (i = 0; i < larguraMensagens - 2; i++) cout << " ";
+	cout << "#" << endl;
+
+	for (j = 0; j < (int)itens.size(); j++) {
 		cout << "# " << j + 1 << ". " << itens[j];
-		for (i = 0; i < larguraMensagens - itens[j].size() - 6; i++) cout << " ";
+		for (i = 0; i < larguraMensagens - ((int)itens[j].size()) - 6; i++) cout << " ";
 		cout << "#" << endl;
 
 		cout << "#";
@@ -94,7 +101,7 @@ bool ComandosConsole::MenuContinuarNoPrograma(string mensagem, string opcaoAfirm
 	cout << "#" << endl;
 
 	cout << "# " << mensagem;
-	for (i = 0; i < larguraMensagens - mensagem.size() - 4; i++) cout << " ";
+	for (i = 0; i < larguraMensagens - ((int)mensagem.size()) - 4; i++) cout << " ";
 	cout << " #" << endl;
 
 	cout << "#";
@@ -102,7 +109,7 @@ bool ComandosConsole::MenuContinuarNoPrograma(string mensagem, string opcaoAfirm
 	cout << "#" << endl;
 
 	cout << "# [1] " << opcaoAfirmativa;
-	for (i = 0; i < larguraMensagens - opcaoAfirmativa.size() - 8; i++) cout << " ";
+	for (i = 0; i < larguraMensagens - ((int)opcaoAfirmativa.size()) - 8; i++) cout << " ";
 	cout << " #" << endl;
 
 	cout << "#";

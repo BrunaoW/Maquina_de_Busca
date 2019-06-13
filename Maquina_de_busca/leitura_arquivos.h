@@ -4,8 +4,8 @@
 #include <fstream>
 #include <string>
 #include <cctype>
-
 #include <dirent.h>
+
 #include "documento.h"
 #include "palavra.h"
 #include "indice_invertido.h"

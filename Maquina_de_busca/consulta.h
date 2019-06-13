@@ -1,5 +1,6 @@
 #include <map>
 #include <cmath>
+#include <cstring>
 
 #include "palavra.h"
 #include "coordenada.h"

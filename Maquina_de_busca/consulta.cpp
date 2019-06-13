@@ -23,7 +23,8 @@ void Consulta::CalcularCoordenadasParaPalavras(IndiceInvertido& indiceInvertido,
 {
 	for (auto& palavra : palavras_) {
 		double tf = palavra.second;
-		double idf = log10(numeroDeDocumentos / indiceInvertido.BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(palavra.first));
+		double quantidadeDeDocumentosAssociadosAPalavra = indiceInvertido.BuscarQuantidadeDeDocumentosAssociadosAUmaPalavra(palavra.first);
+		double idf = log10(quantidadeDeDocumentosAssociadosAPalavra == 0 ? 1 : numeroDeDocumentos / quantidadeDeDocumentosAssociadosAPalavra);
 	
 		this->coordenada_.AtualizarValorDaPalavra(palavra.first, tf * idf);
 	}

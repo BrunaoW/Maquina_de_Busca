@@ -19,7 +19,7 @@ vector<Documento> LeituraArquivos::LerArquivosDaPasta(string caminhoDaPasta) {
 	}
 
 	// le todos os arquivos presentes na pasta de dataset
-	while (arquivo = readdir(diretorioAtual)) {
+	while ((arquivo = readdir(diretorioAtual))) {
 		if (arquivo == NULL) {
 			cout << "Arquivo nao iniciado corretamente. O programa esta encerrado" << endl;
 			exit(3);
