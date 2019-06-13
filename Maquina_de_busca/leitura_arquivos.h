@@ -5,7 +5,7 @@
 #include <string>
 #include <cctype>
 
-#include "include/dirent.h"
+#include <dirent.h>
 #include "documento.h"
 #include "palavra.h"
 #include "indice_invertido.h"
