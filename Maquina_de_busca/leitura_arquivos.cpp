@@ -2,8 +2,8 @@
 
 using namespace std;
 
-list<Documento> LeituraArquivos::LerArquivosDaPasta(string caminhoDaPasta) {
-	list<Documento> documentos;
+vector<Documento> LeituraArquivos::LerArquivosDaPasta(string caminhoDaPasta) {
+	vector<Documento> documentos;
 
 	DIR* diretorioAtual = NULL;
 
@@ -14,14 +14,14 @@ list<Documento> LeituraArquivos::LerArquivosDaPasta(string caminhoDaPasta) {
 
 	// Verifica se a pasta foi aberta corretamente
 	if (diretorioAtual == NULL) {
-		cout << "Diretorio nao iniciado corretamente." << endl;
+		cout << "Diretorio nao iniciado corretamente. O programa esta encerrado" << endl;
 		exit(3);
 	}
 
 	// le todos os arquivos presentes na pasta de dataset
 	while (arquivo = readdir(diretorioAtual)) {
 		if (arquivo == NULL) {
-			cout << "Arquivo nao iniciado corretamente." << endl;
+			cout << "Arquivo nao iniciado corretamente. O programa esta encerrado" << endl;
 			exit(3);
 		}
 
@@ -34,7 +34,7 @@ list<Documento> LeituraArquivos::LerArquivosDaPasta(string caminhoDaPasta) {
 	return documentos;
 }
 
-void LeituraArquivos::LerPalavrasDeDocumentos(list<Documento>& documentos, IndiceInvertido& indiceInvertido, string caminhoDaPasta) {
+void LeituraArquivos::LerPalavrasDeDocumentos(vector<Documento>& documentos, IndiceInvertido& indiceInvertido, string caminhoDaPasta) {
 	for (Documento& documento : documentos) {
 		ifstream arquivo;
 		arquivo.open(caminhoDaPasta + documento.ObterNome());

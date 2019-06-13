@@ -48,7 +48,7 @@ int Documento::BuscarVezesQuePalavraAparece(Palavra palavra)
 	return this->palavras_[palavra];
 }
 
-vector<string> Documento::ObterNomesDeDocumentos(list<Documento> documentos)
+vector<string> Documento::ObterNomesDeDocumentos(vector<Documento> documentos)
 {
 	vector<string> listaDeNomes;
 

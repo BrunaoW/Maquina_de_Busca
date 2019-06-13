@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cmath>
 #include <string>
+#include <vector>
 
 #include "indice_invertido.h"
 #include "documento.h"
@@ -19,7 +20,7 @@ using namespace std;
 class MecanismoDeBusca
 {
 	IndiceInvertido indiceInvertido_;
-	list<Documento> documentos_;
+	vector<Documento> documentos_;
 	Consulta consulta_;
 
 public:

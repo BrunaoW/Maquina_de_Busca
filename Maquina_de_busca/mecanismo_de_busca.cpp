@@ -52,13 +52,14 @@ void MecanismoDeBusca::CalcularProximidadeDeDocumentos()
 	for (Documento& documento : documentos_) {
 		double numerador = 0, denominador = 0, somatorioPosicaoDocumento = 0, somatorioPosicaoConsulta = 0;
 		
-		//iterando sobre as palavras de um documento
-		for (auto& posicaoPalavra : documento.ObterCoordenada()) {
-			//Conta para o numerador
-			numerador += consulta_.ObterCoordenada()[posicaoPalavra.first] * posicaoPalavra.second;
-			somatorioPosicaoDocumento += pow(posicaoPalavra.second, 2);
-			somatorioPosicaoConsulta += pow(consulta_.ObterCoordenada()[posicaoPalavra.first], 2);
+		//iterando sobre as palavras das consulta
+		for (auto& palavraDaCoordenada : consulta_.ObterCoordenada()) {
+			// Conta para o numerador
+			numerador += documento.ObterCoordenada()[palavraDaCoordenada.first] * palavraDaCoordenada.second;
+			somatorioPosicaoDocumento += pow(documento.ObterCoordenada()[palavraDaCoordenada.first], 2);
+			somatorioPosicaoConsulta += pow(palavraDaCoordenada.second, 2);
 		}
+
 		denominador += sqrt(somatorioPosicaoDocumento) * sqrt(somatorioPosicaoConsulta);
 		documento.AtribuirProximidade(denominador == 0 ? 0 : numerador/denominador);
 	}
@@ -66,7 +67,7 @@ void MecanismoDeBusca::CalcularProximidadeDeDocumentos()
 
 void MecanismoDeBusca::OrdenarDocumentosPorProximidade()
 {
-	this->documentos_.sort([](const Documento& d1, const Documento& d2) { return d1.ObterProximidade() > d2.ObterProximidade(); });
+	sort(documentos_.begin(), documentos_.end(), [](const Documento& d1, const Documento& d2) { return d1.ObterProximidade() > d2.ObterProximidade(); });
 }
 
 MecanismoDeBusca::~MecanismoDeBusca()

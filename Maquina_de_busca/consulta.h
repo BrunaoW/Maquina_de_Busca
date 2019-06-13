@@ -32,6 +32,9 @@ class Consulta
 
 	// Atribui palavras quando o usuario realiza a consulta
 	void AtribuirPalavras(string frase);
+
+	// Obtem palavras inseridas na consulta
+	map<Palavra, int> ObterPalavras();
 };
 
 #endif // CONSULTA_H

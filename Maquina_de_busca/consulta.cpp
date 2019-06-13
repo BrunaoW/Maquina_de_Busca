@@ -45,4 +45,9 @@ void Consulta::AtribuirPalavras(string frase)
 	}
 }
 
+map<Palavra, int> Consulta::ObterPalavras()
+{
+	return this->palavras_;
+}
+
 

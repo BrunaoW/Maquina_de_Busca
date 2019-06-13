@@ -52,7 +52,7 @@ class Documento
 	int BuscarVezesQuePalavraAparece(Palavra palavra);
 
 	// Obter lista de nomes dos documentos
-	static vector<string> ObterNomesDeDocumentos(list<Documento> documentos);
+	static vector<string> ObterNomesDeDocumentos(vector<Documento> documentos);
 
 	// Indice Invertido declarado como classe amiga para ela ter acesso as propriedades do documento
 	friend class IndiceInvertido;

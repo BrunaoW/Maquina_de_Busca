@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <vector>
 #include <fstream>
 #include <string>
 #include <cctype>
@@ -13,9 +14,9 @@ using namespace std;
 
 namespace LeituraArquivos {
 
-	list<Documento> LerArquivosDaPasta(string caminhoDaPasta);
+	vector<Documento> LerArquivosDaPasta(string caminhoDaPasta);
 
-	void LerPalavrasDeDocumentos(list<Documento>& documentos, IndiceInvertido& indiceInvertido, string caminhoDaPasta);
+	void LerPalavrasDeDocumentos(vector<Documento>& documentos, IndiceInvertido& indiceInvertido, string caminhoDaPasta);
 
 	void NormalizarPalavra(string& palavra);
 	
